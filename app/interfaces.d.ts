@@ -6,3 +6,12 @@ interface Trending {
     overview: string;
   }[];
 }
+
+interface Popular {
+  results: {
+    id: number;
+    backdrop_path: string;
+    title: string;
+    overview: string;
+  }[];
+}
