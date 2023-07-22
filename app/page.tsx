@@ -1,95 +1,52 @@
-import Image from 'next/image'
-import styles from './page.module.css'
+import Image from 'next/image';
+import Link from 'next/link';
+import getTrendingData from './helpers/getTrendingData';
 
-export default function Home() {
+export default async function Home() {
+  const data: Trending = await getTrendingData();
   return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>app/page.tsx</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
+    <div className='bg-[#222] py-6 sm:py-8 lg:py-12'>
+      <div className='mx-auto max-w-screen-2xl px-4 md:px-8'>
+        <div className='mb-10 md:mb-16'>
+          <h2 className='mb-4 text-center text-2xl font-bold text-white md:mb-6 lg:text-3xl'>
+            Top Trending Movies
+          </h2>
+        </div>
+
+        <div className='grid gap-4 sm:grid-cols-2 md:gap-6 lg:grid-cols-3 xl:grid-cols-4 xl:gap-8'>
+          {data.results.map((movie) => (
+            <div
+              key={movie.id}
+              className='flex flex-col overflow-hidden rounded-md bg-[#333]'
+            >
+              <Link
+                className='group relative block h-56 overflow-hidden bg-gray-100 md:h-[30rem]'
+                href={`/movie/${movie.id}`}
+              >
+                <Image
+                  src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
+                  alt='image movie banner'
+                  width={500}
+                  height={500}
+                  className='absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110'
+                />
+              </Link>
+              <div className='flex flex-1 flex-col p-4 sm:p-6'>
+                <h2 className='mb-2 text-lg font-semibold text-white'>
+                  <Link
+                    href={`/movie/${movie.id}`}
+                    className='transition duration-100 hover:text-lf-aqua active:text-lf-aqua/50'
+                  >
+                    {movie.title}
+                  </Link>
+                </h2>
+
+                <p className='text-gray-300 line-clamp-3'>{movie.overview}</p>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
-
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className={styles.grid}>
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore the Next.js 13 playground.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
-  )
+    </div>
+  );
 }
