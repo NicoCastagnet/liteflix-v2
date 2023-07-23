@@ -1,9 +1,10 @@
-import Image from 'next/image';
-import Link from 'next/link';
-import getTrendingData from '../../helpers/getTrendingData';
+import Image from 'next/image'
+import Link from 'next/link'
+import getTrendingData from '../../helpers/getTrendingData'
+import { Trending } from '@/app/interfaces'
 
-export default async function Trending() {
-  const data: Trending = await getTrendingData();
+export default async function TrendingMovies () {
+  const data: Trending = await getTrendingData()
   return (
     <div className='bg-[#222] py-6 sm:py-8 lg:py-12'>
       <div className='mx-auto max-w-screen-2xl px-4 md:px-8'>
@@ -48,5 +49,5 @@ export default async function Trending() {
         </div>
       </div>
     </div>
-  );
+  )
 }

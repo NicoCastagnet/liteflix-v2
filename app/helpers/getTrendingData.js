@@ -2,14 +2,14 @@ const getTrendingData = async () => {
   const url = await fetch('https://api.themoviedb.org/3/trending/movie/day', {
     headers: {
       accept: 'application/json',
-      Authorization: process.env.TMBD_API_KEY,
+      Authorization: process.env.TMBD_API_KEY
     },
     next: {
-      revalidate: 10,
-    },
-  });
+      revalidate: 10
+    }
+  })
 
-  return url.json();
-};
+  return url.json()
+}
 
-export default getTrendingData;
+export default getTrendingData

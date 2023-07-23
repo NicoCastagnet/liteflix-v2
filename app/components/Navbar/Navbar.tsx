@@ -1,13 +1,13 @@
-import React from 'react';
-import Bell from '../Icons/Bell';
-import List from '../Icons/List';
-import Link from 'next/link';
+import React from 'react'
+import Bell from '../Icons/Bell'
+import List from '../Icons/List'
+import Link from 'next/link'
 
 export const Navbar = () => {
   return (
     <nav className='z-10 w-full flex justify-between gap-16 py-5 text-white fill-white max-sm:items-center max-sm:justify-between max-sm:px-5 bg-transparent absolute px-8'>
       <div className='flex items-center text-center gap-20'>
-        <Link href={'/'}>
+        <Link href='/'>
           <h1 className='uppercase text-lf-aqua font-semibold text-4xl max-sm:hidden'>
             Lite<span className='font-light'>flix</span>
           </h1>
@@ -33,5 +33,5 @@ export const Navbar = () => {
         <div className='w-8 h-8 rounded-full cursor-pointer bg-lf-aqua' />
       </div>
     </nav>
-  );
-};
+  )
+}

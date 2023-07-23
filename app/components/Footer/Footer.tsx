@@ -1,5 +1,5 @@
-import Link from 'next/link';
-import React from 'react';
+import Link from 'next/link'
+import React from 'react'
 
 export const Footer = () => {
   return (
@@ -56,7 +56,7 @@ export const Footer = () => {
             <ul className='text-gray-300'>
               <li className='mb-4'>
                 <Link
-                  href={'https://linkedin.com/in/nicolas-castagnet/'}
+                  href='https://linkedin.com/in/nicolas-castagnet/'
                   rel='noreferrer noopener'
                   target='_blank'
                   className='hover:underline'
@@ -66,7 +66,7 @@ export const Footer = () => {
               </li>
               <li className='mb-4'>
                 <Link
-                  href={'https://github.com/NicoCastagnet/'}
+                  href='https://github.com/NicoCastagnet/'
                   rel='noreferrer noopener'
                   target='_blank'
                   className='hover:underline'
@@ -76,7 +76,7 @@ export const Footer = () => {
               </li>
               <li>
                 <Link
-                  href={'https://nicocastagnet.com.ar/'}
+                  href='https://nicocastagnet.com.ar/'
                   rel='noreferrer noopener'
                   target='_blank'
                   className='hover:underline'
@@ -94,7 +94,7 @@ export const Footer = () => {
           © 2023{' '}
           <Link
             className='hover:underline'
-            href={'/'}
+            href='/'
           >
             LITEFLIX™
           </Link>
@@ -102,5 +102,5 @@ export const Footer = () => {
         </span>
       </div>
     </footer>
-  );
-};
+  )
+}

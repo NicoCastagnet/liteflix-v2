@@ -1,7 +1,7 @@
-import React from 'react';
+import React from 'react'
 
 const MovieData = ({ params }: { params: { id: string } }) => {
-  return <div>page {params.id}</div>;
-};
+  return <div>page {params.id}</div>
+}
 
-export default MovieData;
+export default MovieData

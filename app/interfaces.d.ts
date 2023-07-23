@@ -1,27 +1,26 @@
-interface Trending {
+export interface Trending {
   results: {
-    id: number;
-    poster_path: string;
-    title: string;
-    overview: string;
-  }[];
+    id: number
+    poster_path: string
+    title: string
+    overview: string
+  }[]
 }
 
-interface Popular {
+export interface Popular {
   results: {
-    adult: boolean;
-    backdrop_path: string;
-    genre_ids: number[];
-    id: number;
-    original_language: OriginalLanguage;
-    original_title: string;
-    overview: string;
-    popularity: number;
-    poster_path: string;
-    release_date: Date;
-    title: string;
-    video: boolean;
-    vote_average: number;
-    vote_count: number;
-  }[];
+    adult: boolean
+    backdrop_path: string
+    genre_ids: number[]
+    id: number
+    original_title: string
+    overview: string
+    popularity: number
+    poster_path: string
+    release_date: Date
+    title: string
+    video: boolean
+    vote_average: number
+    vote_count: number
+  }[]
 }

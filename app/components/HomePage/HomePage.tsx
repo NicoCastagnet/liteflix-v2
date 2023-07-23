@@ -1,12 +1,13 @@
-import getMostPopular from '@/app/helpers/getMostPopular';
-import Image from 'next/image';
+import getMostPopular from '@/app/helpers/getMostPopular'
+import { Popular } from '@/app/interfaces'
+import Image from 'next/image'
 
-export default async function HomePage() {
-  const getPopularMovies: Popular = await getMostPopular();
+export default async function HomePage () {
+  const getPopularMovies: Popular = await getMostPopular()
   const getRandomMovie =
     getPopularMovies.results[
       Math.floor(Math.random() * getPopularMovies.results.length)
-    ];
+    ]
 
   return (
     <div className='relative h-screen'>
@@ -23,5 +24,5 @@ export default async function HomePage() {
         <p className='line-clamp-3'>{getRandomMovie.overview}</p>
       </div>
     </div>
-  );
+  )
 }
