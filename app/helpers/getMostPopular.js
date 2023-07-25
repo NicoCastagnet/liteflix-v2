@@ -1,4 +1,4 @@
-const getMostPopular = async () => {
+export const getMostPopular = async () => {
   const url = await fetch('https://api.themoviedb.org/3/movie/popular', {
     headers: {
       accept: 'application/json',
@@ -9,7 +9,10 @@ const getMostPopular = async () => {
     }
   })
 
-  return url.json()
+  const data = await url.json()
+  const firstTenResults = data.results.slice(0, 10)
+
+  return firstTenResults
 }
 
 export default getMostPopular

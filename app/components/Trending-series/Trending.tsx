@@ -1,9 +1,8 @@
 import getTrendingSeries from '../../helpers/getTrendingSeries'
-import { TrendingSerie } from '@/app/interfaces'
 import { Slider } from './Slider'
 
 export const TrendingSeries = async () => {
-  const data: TrendingSerie = await getTrendingSeries()
+  const data = await getTrendingSeries()
 
   return (
     <section className='my-10'>

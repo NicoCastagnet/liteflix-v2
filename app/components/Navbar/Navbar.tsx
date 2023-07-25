@@ -1,8 +1,12 @@
 import React from 'react'
-import Bell from '../Icons/Bell'
+
 import Link from 'next/link'
-import Search from '../Icons/Search'
 import Image from 'next/image'
+
+import Bell from '../Icons/Bell'
+import Search from '../Icons/Search'
+
+import rgbDataURL from '@/app/helpers/imageBlur'
 
 export const Navbar = () => {
   return (
@@ -41,9 +45,9 @@ export const Navbar = () => {
           alt='man'
           width={30}
           height={30}
-          objectFit='cover'
-          quality={70}
-          className='cursor-pointer'
+          placeholder='blur'
+          blurDataURL={rgbDataURL(51, 51, 51)}
+          className='cursor-pointer object-cover object-center'
         />
       </div>
     </nav>

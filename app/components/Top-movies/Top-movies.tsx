@@ -1,7 +1,11 @@
 import React from 'react'
+
+import Image from 'next/image'
+
 import getTopRated from '@/app/helpers/getTopRated'
 import { Movie } from '@/app/interfaces'
-import Image from 'next/image'
+
+import rgbDataURL from '@/app/helpers/imageBlur'
 
 export const TopMovies = async () => {
   const data: Movie = await getTopRated()
@@ -24,8 +28,9 @@ export const TopMovies = async () => {
               alt={movie.title}
               width={230}
               height={0}
-              objectFit='cover'
-              quality={100}
+              placeholder='blur'
+              blurDataURL={rgbDataURL(51, 51, 51)}
+              className='object-cover object-center'
             />
             <div className='absolute opacity-0 group-hover:opacity-100 bg-gradient-to-t from-[#222] to-transparent w-full h-full top-0 left-0 text-white flex flex-col justify-end py-10 px-2 text-center gap-2 items-center  transition-all'>
               <p className='text-lg font-medium'>{movie.title}</p>

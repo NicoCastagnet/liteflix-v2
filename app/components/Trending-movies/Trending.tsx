@@ -1,9 +1,8 @@
 import getTrendingMovies from '../../helpers/getTrendingMovies'
-import { TrendingMovie } from '@/app/interfaces'
 import { Slider } from './Slider'
 
 export const TrendingMovies = async () => {
-  const data: TrendingMovie = await getTrendingMovies()
+  const data = await getTrendingMovies()
   return (
     <section className='my-10'>
       <h1 className='text-white text-2xl font-bold px-20 pb-5'>

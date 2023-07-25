@@ -1,11 +1,11 @@
 'use client'
 
+import Image from 'next/image'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Navigation, Autoplay } from 'swiper/modules'
-import Image from 'next/image'
 
-import 'swiper/css'
-import 'swiper/css/navigation'
+import rgbDataURL from '@/app/helpers/imageBlur'
+
 import Play from '../Icons/Play'
 import ThumbUp from '../Icons/ThumbUp'
 import Check from '../Icons/Check'
@@ -13,7 +13,18 @@ import Information from '../Icons/Information'
 import Star from '../Icons/Star'
 import Link from 'next/link'
 
-export function Slider({ data }) {
+import { TrendingMovie } from '@/app/interfaces'
+
+import 'swiper/css'
+import 'swiper/css/navigation'
+
+interface SliderProps {
+  data: {
+    results: TrendingMovie[]
+  }
+}
+
+export const Slider = ({ data }: SliderProps) => {
   return (
     <div className='relative'>
       <Swiper
@@ -37,13 +48,13 @@ export function Slider({ data }) {
               className='group'
             >
               <Image
-                src={`https://image.tmdb.org/t/p/original/${movie.backdrop_path}`}
                 alt={movie.title}
+                src={`https://image.tmdb.org/t/p/original/${movie.backdrop_path}`}
                 width={300}
-                height={0}
-                objectFit='cover'
-                quality={70}
-                className='-z-10 rounded-md'
+                height={170}
+                placeholder='blur'
+                blurDataURL={rgbDataURL(51, 51, 51)}
+                className='rounded-md object-cover object-center'
               />
               <div className='flex justify-between flex-col absolute h-full w-full top-0 left-0 bg-[#222]/80 text-white py-3 px-4 rounded-md z-50 opacity-0 group-hover:opacity-100 transition-all'>
                 <h1 className='text-xl font-bold'>{movie.title}</h1>
