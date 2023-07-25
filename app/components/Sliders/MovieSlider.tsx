@@ -1,43 +1,39 @@
 'use client'
 
 import Image from 'next/image'
+import Link from 'next/link'
+
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Navigation, Autoplay } from 'swiper/modules'
 
-import rgbDataURL from '@/app/helpers/imageBlur'
+import { Movie } from '@/app/interfaces'
+import { imageBlur } from '@/app/helpers'
 
-import Play from '../Icons/Play'
-import ThumbUp from '../Icons/ThumbUp'
-import Check from '../Icons/Check'
-import Information from '../Icons/Information'
-import Star from '../Icons/Star'
-import Link from 'next/link'
-
-import { TrendingMovie } from '@/app/interfaces'
+import { Check, Information, Play, Star, ThumbUp } from '../Icons'
 
 import 'swiper/css'
 import 'swiper/css/navigation'
 
 interface SliderProps {
   data: {
-    results: TrendingMovie[]
+    results: Movie[]
   }
 }
 
-export const Slider = ({ data }: SliderProps) => {
+const MovieSlider = ({ data }: SliderProps) => {
   return (
     <div className='relative'>
       <Swiper
         spaceBetween={10}
         slidesPerView={6}
-        centeredSlides
         autoplay={{
-          delay: 3500
+          delay: 5000
         }}
         grabCursor
-        loop
         navigation
         modules={[Autoplay, Navigation]}
+        loop
+        centeredSlides
       >
         {data.results.map((movie) => {
           const date = movie.release_date.split('-')
@@ -53,7 +49,7 @@ export const Slider = ({ data }: SliderProps) => {
                 width={300}
                 height={170}
                 placeholder='blur'
-                blurDataURL={rgbDataURL(51, 51, 51)}
+                blurDataURL={imageBlur(51, 51, 51)}
                 className='rounded-md object-cover object-center'
               />
               <div className='flex justify-between flex-col absolute h-full w-full top-0 left-0 bg-[#222]/80 text-white py-3 px-4 rounded-md z-50 opacity-0 group-hover:opacity-100 transition-all'>
@@ -89,3 +85,5 @@ export const Slider = ({ data }: SliderProps) => {
     </div>
   )
 }
+
+export default MovieSlider

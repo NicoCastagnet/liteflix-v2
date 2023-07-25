@@ -3,12 +3,11 @@ import React from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 
-import Bell from '../Icons/Bell'
-import Search from '../Icons/Search'
+import { imageBlur } from '@/app/helpers'
 
-import rgbDataURL from '@/app/helpers/imageBlur'
+import { Bell, Search } from '../Icons'
 
-export const Navbar = () => {
+const Navbar = () => {
   return (
     <nav className='flex justify-between items-center px-20 py-5 bg-gradient-to-b from-[#181818] to-transparent fixed w-full z-50'>
       <div className='flex justify-center items-center gap-16'>
@@ -46,10 +45,12 @@ export const Navbar = () => {
           width={30}
           height={30}
           placeholder='blur'
-          blurDataURL={rgbDataURL(51, 51, 51)}
+          blurDataURL={imageBlur(51, 51, 51)}
           className='cursor-pointer object-cover object-center'
         />
       </div>
     </nav>
   )
 }
+
+export default Navbar

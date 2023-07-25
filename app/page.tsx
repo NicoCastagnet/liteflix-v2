@@ -1,17 +1,32 @@
-import { Divider } from './components/Divider/Divider'
-import { HomePage } from './components/HomePage/HomePage'
-import { TopMovies } from './components/Top-movies/Top-movies'
-import { TrendingMovies } from './components/Trending-movies/Trending'
-import { TrendingSeries } from './components/Trending-series/Trending'
+import {
+  Divider,
+  Genres,
+  Header,
+  TopMovies,
+  TrendingMovies,
+  TrendingSeries
+} from './components'
 
 const Home = () => {
   return (
     <>
-      <HomePage />
+      <Header />
       <TrendingMovies />
       <Divider />
       <TopMovies />
       <TrendingSeries />
+      <Genres
+        genre={80}
+        title='Find out the best crime movies...'
+      />
+      <Genres
+        genre={35}
+        title='Guaranteed fun!'
+      />
+      <Genres
+        genre={27}
+        title='Horror films'
+      />
     </>
   )
 }

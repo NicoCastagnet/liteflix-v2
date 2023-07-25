@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import React from 'react'
 
-export const Divider = () => {
+const Divider = () => {
   return (
     <section className='flex relative items-center text-center justify-center gap-10 mb-10 py-10 bg-[#333]'>
       <Image
@@ -24,3 +24,5 @@ export const Divider = () => {
     </section>
   )
 }
+
+export default Divider

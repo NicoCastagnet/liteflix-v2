@@ -4,7 +4,7 @@ import Image from 'next/image'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Navigation, Autoplay } from 'swiper/modules'
 
-import rgbDataURL from '@/app/helpers/imageBlur'
+import { imageBlur } from '@/app/helpers'
 
 import { PopularMovie } from '@/app/interfaces'
 
@@ -15,7 +15,7 @@ interface SliderProps {
   movies: PopularMovie[]
 }
 
-export const HomeSlider = ({ movies }: SliderProps) => {
+const MainSlider = ({ movies }: SliderProps) => {
   return (
     <Swiper
       spaceBetween={0}
@@ -41,7 +41,7 @@ export const HomeSlider = ({ movies }: SliderProps) => {
               alt={movie.title}
               fill
               placeholder='blur'
-              blurDataURL={rgbDataURL(51, 51, 51)}
+              blurDataURL={imageBlur(51, 51, 51)}
               className='-z-10 group-hover:scale-110 transition-all object-cover object-center'
             />
             <div className='text-white flex flex-col justify-end h-screen absolute max-w-4xl p-20 gap-5'>
@@ -54,3 +54,5 @@ export const HomeSlider = ({ movies }: SliderProps) => {
     </Swiper>
   )
 }
+
+export default MainSlider

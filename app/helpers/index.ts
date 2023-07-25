@@ -1,0 +1,7 @@
+export { default as getMostPopular } from './getMostPopular'
+export { default as getMovieByGenre } from './getMovieByGenre'
+export { default as getTopRated } from './getTopRated'
+export { default as getTrendingMovies } from './getTrendingMovies'
+export { default as getTrendingSeries } from './getTrendingSeries'
+export { default as getVideos } from './getVideos'
+export { default as imageBlur } from './imageBlur'

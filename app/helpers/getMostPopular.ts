@@ -1,8 +1,10 @@
-export const getMostPopular = async () => {
+import { PopularMovie } from '../interfaces'
+
+export const getMostPopular = async (): Promise<PopularMovie[]> => {
   const url = await fetch('https://api.themoviedb.org/3/movie/popular', {
     headers: {
       accept: 'application/json',
-      Authorization: process.env.TMBD_API_KEY
+      Authorization: process.env.TMBD_API_KEY || ''
     },
     next: {
       revalidate: 10
@@ -10,7 +12,7 @@ export const getMostPopular = async () => {
   })
 
   const data = await url.json()
-  const firstTenResults = data.results.slice(0, 10)
+  const firstTenResults: PopularMovie[] = data.results.slice(0, 10)
 
   return firstTenResults
 }

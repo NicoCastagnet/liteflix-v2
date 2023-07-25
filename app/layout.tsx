@@ -1,9 +1,9 @@
 import React from 'react'
 import { Inter } from 'next/font/google'
-import { Navbar } from './components/Navbar/Navbar'
-import { Footer } from './components/Footer/Footer'
 
 import type { Metadata } from 'next'
+
+import { Navbar, Footer } from './components'
 
 import './globals.css'
 

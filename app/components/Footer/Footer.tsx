@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import React from 'react'
 
-export const Footer = () => {
+const Footer = () => {
   return (
     <footer className='py-6 px-20 bg-[#333] w-full'>
       <div className='md:flex md:justify-between'>
@@ -104,3 +104,5 @@ export const Footer = () => {
     </footer>
   )
 }
+
+export default Footer

@@ -1,0 +1,8 @@
+export { default as Divider } from './Divider/Divider'
+export { default as Footer } from './Footer/Footer'
+export { default as Genres } from './Genres/Genres'
+export { default as Header } from './Header/Header'
+export { default as Navbar } from './Navbar/Navbar'
+export { default as TrendingMovies } from './Trending-movies/Trending'
+export { default as TrendingSeries } from './Trending-series/Trending'
+export { default as TopMovies } from './Top-movies/Top-movies'

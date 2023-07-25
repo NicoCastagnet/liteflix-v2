@@ -1,14 +1,17 @@
 import React from 'react'
-
 import Image from 'next/image'
+import Link from 'next/link'
 
-import getTopRated from '@/app/helpers/getTopRated'
+import { getTopRated, imageBlur } from '@/app/helpers'
+
 import { Movie } from '@/app/interfaces'
 
-import rgbDataURL from '@/app/helpers/imageBlur'
+interface Props {
+  results: Movie[]
+}
 
-export const TopMovies = async () => {
-  const data: Movie = await getTopRated()
+const TopMovies = async () => {
+  const data: Props = await getTopRated()
   const getTop5 = data.results.slice(0, 5)
   return (
     <section className='flex flex-col justify-center items-center gap-8 mb-10'>
@@ -29,14 +32,17 @@ export const TopMovies = async () => {
               width={230}
               height={0}
               placeholder='blur'
-              blurDataURL={rgbDataURL(51, 51, 51)}
+              blurDataURL={imageBlur(51, 51, 51)}
               className='object-cover object-center'
             />
             <div className='absolute opacity-0 group-hover:opacity-100 bg-gradient-to-t from-[#222] to-transparent w-full h-full top-0 left-0 text-white flex flex-col justify-end py-10 px-2 text-center gap-2 items-center  transition-all'>
               <p className='text-lg font-medium'>{movie.title}</p>
-              <button className='border py-2 w-4/5 rounded-full hover:bg-white hover:text-black transition-all'>
+              <Link
+                href={`/movie/${movie.id}`}
+                className='border py-2 w-4/5 rounded-full hover:bg-white hover:text-black transition-all'
+              >
                 Check it now!
-              </button>
+              </Link>
             </div>
           </div>
         ))}
@@ -44,3 +50,5 @@ export const TopMovies = async () => {
     </section>
   )
 }
+
+export default TopMovies
