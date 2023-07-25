@@ -33,6 +33,7 @@ export function Slider({ movies }) {
               alt={movie.title}
               layout='fill'
               objectFit='cover'
+              quality={70}
               className='-z-10 group-hover:scale-110 transition-all'
             />
             <div className='text-white flex flex-col justify-end h-screen absolute max-w-4xl p-16 gap-5'>
