@@ -2,7 +2,7 @@
 
 import Image from 'next/image'
 import { Swiper, SwiperSlide } from 'swiper/react'
-import { Navigation, Autoplay } from 'swiper/modules'
+import { Navigation, Autoplay, Keyboard } from 'swiper/modules'
 
 import { imageBlur } from '@/app/helpers'
 
@@ -21,12 +21,18 @@ const MainSlider = ({ movies }: SliderProps) => {
       spaceBetween={0}
       autoplay={{
         delay: 3500,
-        disableOnInteraction: true
+        disableOnInteraction: false,
+        pauseOnMouseEnter: false
+      }}
+      keyboard={{
+        enabled: true,
+        onlyInViewport: true,
+        pageUpDown: false
       }}
       navigation
       grabCursor
       loop
-      modules={[Navigation, Autoplay]}
+      modules={[Navigation, Autoplay, Keyboard]}
       className='mySwiper'
     >
       {movies.map((movie) => (

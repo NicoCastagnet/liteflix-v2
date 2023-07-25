@@ -18,16 +18,22 @@ interface SliderProps {
   data: {
     results: Movie[]
   }
+  del: number
+  direction: boolean
 }
 
-const MovieSlider = ({ data }: SliderProps) => {
+const MovieSlider = ({ data, del, direction }: SliderProps) => {
+  console.log(del)
   return (
     <div className='relative'>
       <Swiper
         spaceBetween={10}
         slidesPerView={6}
         autoplay={{
-          delay: 5000
+          delay: del,
+          disableOnInteraction: false,
+          pauseOnMouseEnter: true,
+          reverseDirection: direction
         }}
         grabCursor
         navigation

@@ -14,6 +14,8 @@ body {
     top: 22px !important;
     height: 100% !important;
     color: white !important;
+    opacity: 0 !important;
+    transition: all .2s ease-in-out !important;
 }
 
 .swiper-button-next {
@@ -23,4 +25,11 @@ body {
     top: 22px !important;
     height: 100% !important;
     color: white !important;
+    opacity: 0 !important;
+    transition: all .2s ease-in-out !important;
+}
+
+.swiper-button-next:hover, .swiper-button-prev:hover {
+    opacity: 1 !important;
+    transition: all .2s ease-in !important;
 }

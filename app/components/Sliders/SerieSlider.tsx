@@ -27,7 +27,9 @@ const SerieSlider = ({ data }: SliderProps) => {
         spaceBetween={10}
         slidesPerView={6}
         autoplay={{
-          delay: 5000
+          delay: 5000,
+          disableOnInteraction: false,
+          pauseOnMouseEnter: true
         }}
         grabCursor
         navigation
