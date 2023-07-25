@@ -1,10 +1,10 @@
 import getMostPopular from '@/app/helpers/getMostPopular'
 import { Popular } from '@/app/interfaces'
-import { Slider } from './Swiper'
+import { HomeSlider } from './HomeSlider'
 
-export default async function HomePage() {
+export const HomePage = async () => {
   const getPopularMovies: Popular = await getMostPopular()
   const getLatestPopular = getPopularMovies.results.slice(0, 10)
 
-  return <Slider movies={getLatestPopular} />
+  return <HomeSlider movies={getLatestPopular} />
 }

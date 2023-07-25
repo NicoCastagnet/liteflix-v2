@@ -1,13 +1,19 @@
-import Divider from './components/Divider/Divider'
-import HomePage from './components/HomePage/HomePage'
-import TrendingMovies from './components/Trending/Trending'
+import { Divider } from './components/Divider/Divider'
+import { HomePage } from './components/HomePage/HomePage'
+import { Top5 } from './components/Top5/Top5'
+import { TrendingMovies } from './components/Trending-movies/Trending'
+import { TrendingSeries } from './components/Trending-series/Trending'
 
-export default async function Home() {
+const Home = () => {
   return (
     <>
       <HomePage />
       <TrendingMovies />
       <Divider />
+      <Top5 />
+      <TrendingSeries />
     </>
   )
 }
+
+export default Home

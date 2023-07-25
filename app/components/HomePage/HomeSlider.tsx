@@ -7,7 +7,7 @@ import Image from 'next/image'
 import 'swiper/css'
 import 'swiper/css/navigation'
 
-export function Slider({ movies }) {
+export function HomeSlider({ movies }) {
   return (
     <Swiper
       spaceBetween={0}

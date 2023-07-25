@@ -13,7 +13,7 @@ import Information from '../Icons/Information'
 import Star from '../Icons/Star'
 import Link from 'next/link'
 
-export function Slider({ movies }) {
+export function Slider({ data }) {
   return (
     <div className='relative'>
       <Swiper
@@ -28,17 +28,17 @@ export function Slider({ movies }) {
         navigation
         modules={[Autoplay, Navigation]}
       >
-        {movies.results.map((movie) => {
-          const date = movie.release_date.split('-')
+        {data.results.map((serie) => {
+          const date = serie.first_air_date.split('-')
           const date2 = date.reverse().join('/')
           return (
             <SwiperSlide
-              key={movie.id}
+              key={serie.id}
               className='group'
             >
               <Image
-                src={`https://image.tmdb.org/t/p/original/${movie.backdrop_path}`}
-                alt={movie.title}
+                src={`https://image.tmdb.org/t/p/original/${serie.backdrop_path}`}
+                alt={serie.name}
                 width={300}
                 height={0}
                 objectFit='cover'
@@ -46,7 +46,7 @@ export function Slider({ movies }) {
                 className='-z-10 rounded-md'
               />
               <div className='flex justify-between flex-col absolute h-full w-full top-0 left-0 bg-[#222]/80 text-white py-2 px-4 rounded-md z-50 opacity-0 group-hover:opacity-100 transition-all'>
-                <h1 className='text-xl font-bold'>{movie.title}</h1>
+                <h1 className='text-xl font-bold'>{serie.name}</h1>
                 <div className='flex justify-between items-center'>
                   <div className='flex gap-3 items-center'>
                     <Play className='w-10 h-10 fill-black border rounded-full p-1 bg-white hover:bg-white/90 transition-all cursor-pointer' />
@@ -55,7 +55,7 @@ export function Slider({ movies }) {
                   </div>
                   <div>
                     <Link
-                      href={`/movie/${movie.id}`}
+                      href={`/serie/${serie.id}`}
                       rel='noreferrer noopener'
                       target='_blank'
                     >
@@ -67,7 +67,7 @@ export function Slider({ movies }) {
                   <div>{date2}</div>
                   <div className='flex items-center gap-3'>
                     <Star className='fill-lf-aqua' />
-                    {String(movie.vote_average).slice(0, 3)}
+                    {String(serie.vote_average).slice(0, 3)}
                   </div>
                 </div>
               </div>
