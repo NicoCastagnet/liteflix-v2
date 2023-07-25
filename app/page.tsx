@@ -1,6 +1,6 @@
 import { Divider } from './components/Divider/Divider'
 import { HomePage } from './components/HomePage/HomePage'
-import { Top5 } from './components/Top5/Top5'
+import { TopMovies } from './components/Top-movies/Top-movies'
 import { TrendingMovies } from './components/Trending-movies/Trending'
 import { TrendingSeries } from './components/Trending-series/Trending'
 
@@ -10,7 +10,7 @@ const Home = () => {
       <HomePage />
       <TrendingMovies />
       <Divider />
-      <Top5 />
+      <TopMovies />
       <TrendingSeries />
     </>
   )

@@ -3,7 +3,7 @@ import getTopRated from '@/app/helpers/getTopRated'
 import { Movie } from '@/app/interfaces'
 import Image from 'next/image'
 
-export const Top5 = async () => {
+export const TopMovies = async () => {
   const data: Movie = await getTopRated()
   const getTop5 = data.results.slice(0, 5)
   return (

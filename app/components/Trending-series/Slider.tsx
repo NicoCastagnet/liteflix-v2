@@ -45,7 +45,7 @@ export function Slider({ data }) {
                 quality={70}
                 className='-z-10 rounded-md'
               />
-              <div className='flex justify-between flex-col absolute h-full w-full top-0 left-0 bg-[#222]/80 text-white py-2 px-4 rounded-md z-50 opacity-0 group-hover:opacity-100 transition-all'>
+              <div className='flex justify-between flex-col absolute h-full w-full top-0 left-0 bg-[#222]/80 text-white py-3 px-4 rounded-md z-50 opacity-0 group-hover:opacity-100 transition-all'>
                 <h1 className='text-xl font-bold'>{serie.name}</h1>
                 <div className='flex justify-between items-center'>
                   <div className='flex gap-3 items-center'>
