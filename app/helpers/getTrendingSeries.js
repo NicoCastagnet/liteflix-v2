@@ -1,5 +1,5 @@
-const getTrendingData = async () => {
-  const url = await fetch('https://api.themoviedb.org/3/trending/movie/day', {
+const getTrendingSeries = async () => {
+  const url = await fetch('https://api.themoviedb.org/3/trending/tv/day', {
     headers: {
       accept: 'application/json',
       Authorization: process.env.TMBD_API_KEY
@@ -12,4 +12,4 @@ const getTrendingData = async () => {
   return url.json()
 }
 
-export default getTrendingData
+export default getTrendingSeries

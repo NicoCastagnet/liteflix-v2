@@ -36,7 +36,7 @@ export function Slider({ movies }) {
               quality={70}
               className='-z-10 group-hover:scale-110 transition-all'
             />
-            <div className='text-white flex flex-col justify-end h-screen absolute max-w-4xl p-16 gap-5'>
+            <div className='text-white flex flex-col justify-end h-screen absolute max-w-4xl p-20 gap-5'>
               <h1 className='font-bold text-6xl'>{movie.title}</h1>
               <p className='line-clamp-3'>{movie.overview}</p>
             </div>
