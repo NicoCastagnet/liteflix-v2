@@ -41,7 +41,7 @@ const MainSlider = ({ movies }: SliderProps) => {
           className='group'
         >
           <div className='relative h-screen'>
-            <div className='absolute inset-0 bg-gradient-to-t from-[#181818] to-transparent opacity-100' />
+            <div className='absolute inset-0 bg-gradient-to-t from-[#222] to-transparent opacity-100' />
             <Image
               src={`https://image.tmdb.org/t/p/original/${movie.backdrop_path}`}
               alt={movie.title}

@@ -1,7 +1,14 @@
+import { DetailHeader } from '@/app/components'
+import { getMovieById } from '@/app/helpers'
 import React from 'react'
 
-const MovieData = ({ params }: { params: { id: string } }) => {
-  return <div>page {params.id}</div>
+const MovieData = async ({ params }: { params: { id: number } }) => {
+  const data = await getMovieById(params.id)
+  return (
+    <>
+      <DetailHeader data={data} />
+    </>
+  )
 }
 
 export default MovieData
