@@ -1,7 +1,9 @@
-import { imageBlur } from '@/app/helpers'
-import { MovieDetail, Socials } from '@/app/interfaces'
 import Image from 'next/image'
-import React from 'react'
+import Link from 'next/link'
+
+import { getSocials, imageBlur, timeConverter } from '@/app/helpers'
+import { MovieDetail, Socials } from '@/app/interfaces'
+
 import {
   Clock,
   Star,
@@ -13,29 +15,24 @@ import {
 } from '../Icons'
 
 import styles from './style.module.css'
-import Link from 'next/link'
-import getMovieSocials from '@/app/helpers/getMovieSocials'
 
 interface Props {
   data: MovieDetail
 }
 
-const toHoursAndMinutes = (totalMinutes: number) => {
-  const hours = Math.floor(totalMinutes / 60)
-  const minutes = totalMinutes % 60
-
-  return { hours, minutes }
-}
-
 const Header = async ({ data }: Props) => {
-  const movieTime = toHoursAndMinutes(data.runtime)
-  const socials: Socials = await getMovieSocials(data.id)
+  const movieTime = timeConverter(data.runtime)
+  const socials: Socials = await getSocials(data.id)
 
   return (
     <section className='relative'>
-      <div className='absolute inset-0 bg-gradient-to-t from-[#222] to-transparent opacity-100 backdrop-blur-md bg-white/10' />
+      <div className='absolute inset-0 bg-gradient-to-t from-[#222] to-transparent opacity-100 backdrop-blur-lg' />
       <Image
-        src={`https://image.tmdb.org/t/p/original/${data.backdrop_path}`}
+        src={
+          data.backdrop_path
+            ? `https://image.tmdb.org/t/p/original/${data.backdrop_path}`
+            : '/notfound.webp'
+        }
         alt={data.title}
         fill
         placeholder='blur'
@@ -90,47 +87,62 @@ const Header = async ({ data }: Props) => {
               Movie not recommended for audiences under 18 years old.
             </span>
           ) : null}
-          <div className='w-full flex justify-between gap-4'>
+          <div className='flex justify-between gap-4'>
             <Link
-              href={data.homepage ? data.homepage : '#'}
+              href={data.homepage && data.homepage}
               rel='noopener noreferrer'
               target='_blank'
-              className='px-4 py-1.5 bg-white/10 backdrop-blur-md rounded-md w-full flex justify-center items-center gap-1 border border-transparent hover:bg-transparent hover:border hover:border-white/50 transition-colors'
+              className='w-full'
             >
-              <LinkIcon className='w-5 h-5' />
-              Official website
+              <button
+                disabled={!data.homepage}
+                className='px-4 py-1.5 bg-white/10 backdrop-blur-md rounded-md w-full flex justify-center items-center gap-2 border border-transparent hover:bg-transparent hover:border hover:border-white/50 transition-colors disabled:cursor-not-allowed disabled:hover:bg-white/10 disabled:hover:border-transparent'
+              >
+                <LinkIcon className='w-5 h-5' />
+                Official website
+              </button>
             </Link>
             <Link
               href={
                 socials.twitter_id
                   ? `https://twitter.com/${socials.twitter_id}`
-                  : '#'
+                  : ''
               }
               rel='noopener noreferrer'
               target='_blank'
-              className='px-4 py-1.5 bg-white/10 backdrop-blur-md rounded-md w-full flex items-center justify-center gap-2 border border-transparent hover:bg-transparent hover:border hover:border-white/50 transition-colors'
+              className='w-full'
             >
-              <Twitter className='w-4 h-4' />
-              Twitter
+              <button
+                disabled={!socials.twitter_id}
+                className='px-4 py-1.5 bg-white/10 backdrop-blur-md rounded-md w-full flex justify-center items-center gap-2 border border-transparent hover:bg-transparent hover:border hover:border-white/50 transition-colors disabled:cursor-not-allowed disabled:hover:bg-white/10 disabled:hover:border-transparent'
+              >
+                <Twitter className='w-4 h-4' />
+                Twitter
+              </button>
             </Link>
             <Link
               href={
                 socials.instagram_id
                   ? `https://instagram.com/${socials.instagram_id}`
-                  : '#'
+                  : ''
               }
               rel='noopener noreferrer'
               target='_blank'
-              className='px-4 py-1.5 bg-white/10 backdrop-blur-md rounded-md w-full flex justify-center items-center gap-2 border border-transparent hover:bg-transparent hover:border hover:border-white/50 transition-colors'
+              className='w-full'
             >
-              <Instagram className='w-4 h-4' />
-              Instagram
+              <button
+                disabled={!socials.instagram_id}
+                className='px-4 py-1.5 bg-white/10 backdrop-blur-md rounded-md w-full flex justify-center items-center gap-2 border border-transparent hover:bg-transparent hover:border hover:border-white/50 transition-colors disabled:cursor-not-allowed disabled:hover:bg-white/10 disabled:hover:border-transparent'
+              >
+                <Instagram className='w-4 h-4' />
+                Instagram
+              </button>
             </Link>
           </div>
         </div>
       </div>
       <Chevron
-        className={`${styles.btn} absolute flex items-center justify-center gap-5 w-full bottom-0 h-20 fill-white py-5`}
+        className={`${styles.scroll_btn} absolute flex items-center justify-center gap-5 w-full bottom-0 h-20 fill-white py-5`}
       />
     </section>
   )

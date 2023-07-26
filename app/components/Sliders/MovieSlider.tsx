@@ -9,7 +9,7 @@ import { Navigation, Autoplay } from 'swiper/modules'
 import { Movie } from '@/app/interfaces'
 import { imageBlur } from '@/app/helpers'
 
-import { Check, Information, Play, Star, ThumbUp } from '../Icons'
+import { Check, Information, Play, SadFace, Star, ThumbUp } from '../Icons'
 
 import 'swiper/css'
 import 'swiper/css/navigation'
@@ -49,15 +49,25 @@ const MovieSlider = ({ data, del, direction }: SliderProps) => {
               key={movie.id}
               className='group'
             >
-              <Image
-                alt={movie.title}
-                src={`https://image.tmdb.org/t/p/original/${movie.backdrop_path}`}
-                width={300}
-                height={170}
-                placeholder='blur'
-                blurDataURL={imageBlur(51, 51, 51)}
-                className='rounded-md object-cover object-center'
-              />
+              {movie.backdrop_path ? (
+                <Image
+                  alt={movie.title}
+                  src={`https://image.tmdb.org/t/p/original/${movie.backdrop_path}`}
+                  width={300}
+                  height={170}
+                  placeholder='blur'
+                  blurDataURL={imageBlur(51, 51, 51)}
+                  className='rounded-md object-cover object-center'
+                />
+              ) : (
+                <div className='flex flex-col justify-center items-center font-semibold text-center text-xl w-full h-[170px] bg-[#333] text-white py-3 px-4 rounded-md transition-all'>
+                  <p>{movie.title}</p>
+                  <span className='flex items-center gap-2 italic font-normal text-sm text-white/50'>
+                    <SadFace className='w-4 h-4' />
+                    Image not found.
+                  </span>
+                </div>
+              )}
               <div className='flex justify-between flex-col absolute h-full w-full top-0 left-0 bg-[#222]/80 text-white py-3 px-4 rounded-md z-50 opacity-0 group-hover:opacity-100 transition-all'>
                 <h1 className='text-xl font-bold'>{movie.title}</h1>
                 <div className='flex justify-between items-center'>

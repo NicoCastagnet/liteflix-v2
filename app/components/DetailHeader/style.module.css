@@ -1,8 +1,8 @@
-.btn {
-    animation: sdb05 1.5s infinite;
+.scroll_btn {
+    animation: anim 1.5s infinite;
 }
 
-  @keyframes sdb05 {
+  @keyframes anim {
     0% {
       transform: translate(0, -20px);
       opacity: 0;
