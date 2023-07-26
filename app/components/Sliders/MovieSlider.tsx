@@ -23,7 +23,6 @@ interface SliderProps {
 }
 
 const MovieSlider = ({ data, del, direction }: SliderProps) => {
-  console.log(del)
   return (
     <div className='relative'>
       <Swiper

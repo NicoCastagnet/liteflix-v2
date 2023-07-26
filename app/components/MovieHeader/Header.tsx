@@ -20,7 +20,7 @@ interface Props {
   data: MovieDetail
 }
 
-const Header = async ({ data }: Props) => {
+const MovieHeader = async ({ data }: Props) => {
   const movieTime = timeConverter(data.runtime)
   const socials: Socials = await getSocials(data.id)
 
@@ -148,4 +148,4 @@ const Header = async ({ data }: Props) => {
   )
 }
 
-export default Header
+export default MovieHeader
