@@ -4,7 +4,7 @@ const getMovieSocials = async (id: number) => {
     {
       headers: {
         accept: 'application/json',
-        Authorization: process.env.TMBD_API_KEY || ''
+        Authorization: process.env.NEXT_PUBLIC_TMBD_API_KEY || ''
       },
       next: {
         revalidate: 10

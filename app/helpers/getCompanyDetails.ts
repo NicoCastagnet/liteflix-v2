@@ -1,11 +1,8 @@
-export const getCompanyDetails = async (id: string) => {
+const getCompanyDetails = async (id: number) => {
   const url = await fetch(`https://api.themoviedb.org/3/company/${id}`, {
     headers: {
       accept: 'application/json',
-      Authorization: process.env.TMBD_API_KEY || ''
-    },
-    next: {
-      revalidate: 10
+      Authorization: process.env.NEXT_PUBLIC_TMBD_API_KEY || ''
     }
   })
 

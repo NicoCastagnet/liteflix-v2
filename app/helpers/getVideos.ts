@@ -4,7 +4,7 @@ const getVideos = async (id: number): Promise<Movie[]> => {
   const url = await fetch(`https://api.themoviedb.org/3/movie/${id}/videos`, {
     headers: {
       accept: 'application/json',
-      Authorization: process.env.TMBD_API_KEY || ''
+      Authorization: process.env.NEXT_PUBLIC_TMBD_API_KEY || ''
     },
     next: {
       revalidate: 10

@@ -1,5 +1,5 @@
-const getTopRated = async () => {
-  const url = await fetch('https://api.themoviedb.org/3/movie/top_rated', {
+const getMovieCredits = async (id: number) => {
+  const url = await fetch(`https://api.themoviedb.org/3/movie/${id}/credits`, {
     headers: {
       accept: 'application/json',
       Authorization: process.env.NEXT_PUBLIC_TMBD_API_KEY || ''
@@ -12,4 +12,4 @@ const getTopRated = async () => {
   return url.json()
 }
 
-export default getTopRated
+export default getMovieCredits
