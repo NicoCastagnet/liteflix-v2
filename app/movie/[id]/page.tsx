@@ -1,4 +1,9 @@
-import { MovieDetails, MovieHeader, Related } from '@/app/components'
+import {
+  MovieChars,
+  MovieDetails,
+  MovieHeader,
+  Related
+} from '@/app/components'
 import { getMovieById } from '@/app/helpers'
 
 const MovieData = async ({ params }: { params: { id: number } }) => {
@@ -7,6 +12,7 @@ const MovieData = async ({ params }: { params: { id: number } }) => {
     <>
       <MovieHeader data={data} />
       <MovieDetails data={data} />
+      <MovieChars id={params.id} />
       <Related
         id={params.id}
         del={4500}

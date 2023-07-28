@@ -8,7 +8,6 @@ import { MovieDetail } from '@/app/interfaces'
 import { Play } from '../Icons'
 
 import Producers from './Producers'
-import Credits from './Credits'
 
 interface Props {
   data: MovieDetail
@@ -73,7 +72,7 @@ const MovieDetails = ({ data }: Props) => {
             </ul>
           </span>
           <Producers data={data} />
-          <Credits data={data} />
+          {/* <Credits data={data} /> */}
         </div>
       </div>
     </section>
